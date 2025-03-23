@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3wfsuno5a8p1"]
+
+[ext_resource type="PackedScene" uid="uid://cvjv4t8tbx10q" path="res://character_body_2d.tscn" id="1_6e84v"]
+[ext_resource type="PackedScene" uid="uid://diqxgxj2ar4va" path="res://scenes/touchcontrols.tscn" id="2_4dvvg"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_6e84v")]
+position = Vector2(362, 420)
+script = null
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="touchcontrols" parent="Control" instance=ExtResource("2_4dvvg")]

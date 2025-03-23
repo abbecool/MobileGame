@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cohsryxhrxdjg"]
+
+[ext_resource type="Script" uid="uid://bwwqixs8nrfpa" path="res://scenes/planet.gd" id="1_h8ms6"]
+[ext_resource type="Texture2D" uid="uid://b2hfk7cfx4uhv" path="res://assets/images/mars.png" id="2_h8ms6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
+radius = 91.0494
+
+[node name="Planet" type="Area2D"]
+script = ExtResource("1_h8ms6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iywne")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_h8ms6")
+
+[node name="GravityField" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h8ms6")
+
+[connection signal="child_entered_tree" from="GravityField" to="." method="_on_gravity_field_child_entered_tree"]
