@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkv7l"]
 size = Vector2(12, 25)
 
-[node name="Rocket" type="CharacterBody2D"]
+[node name="Rocket" type="RigidBody2D"]
 script = ExtResource("1_dkv7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

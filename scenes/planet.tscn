@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
-radius = 91.0494
+radius = 139.0
 
 [node name="Planet" type="Area2D"]
 script = ExtResource("1_h8ms6")
@@ -20,5 +20,3 @@ texture = ExtResource("2_h8ms6")
 
 [node name="GravityField" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h8ms6")
-
-[connection signal="child_entered_tree" from="GravityField" to="." method="_on_gravity_field_child_entered_tree"]
