@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-const ROCKET_FORCE = 100000.0
-const G = 1e-3
+const ROCKET_FORCE = 1000.0
+const G = 1e-4
 const MASS = 1e2
 var screenTouch = false
 
@@ -19,11 +19,13 @@ func _physics_process(delta: float) -> void:
 			continue
 		var force_magnitude = (G * MASS * planet.get_mass()) / distance_squared
 		var force = distance.normalized() * force_magnitude
+		if force.length()>2000:
+			print(force)
 		total_force += force/MASS
-	velocity += total_force
+	velocity += total_force * delta
 
 	if screenTouch:
-		acceleration = (get_viewport().get_mouse_position()-position).normalized() * ROCKET_FORCE * delta
+		acceleration = (get_viewport().get_mouse_position()-Vector2(180,390)).normalized() * ROCKET_FORCE * delta / MASS
 		velocity += acceleration
 	position += velocity
 	
