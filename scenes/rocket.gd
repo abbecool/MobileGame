@@ -1,12 +1,16 @@
 extends RigidBody2D
 
 const ROCKET_FORCE = 1000.0
-const G = 1e-4
+const G = 2e-4
 const MASS = 1e2
+const MAX_FORCE = 1000
 var screenTouch = false
 
 var velocity = Vector2(0,0)
 var acceleration = Vector2(0,0)
+
+func _ready() -> void:
+	mass = MASS
 
 func _physics_process(delta: float) -> void:
 	var total_force = Vector2.ZERO
@@ -18,9 +22,9 @@ func _physics_process(delta: float) -> void:
 		if !planet.has_method("get_mass"):  # Ensure the planet has a get_mass method
 			continue
 		var force_magnitude = (G * MASS * planet.get_mass()) / distance_squared
+		if force_magnitude > MAX_FORCE:
+			force_magnitude = MAX_FORCE
 		var force = distance.normalized() * force_magnitude
-		if force.length()>2000:
-			print(force)
 		total_force += force/MASS
 	velocity += total_force * delta
 
@@ -32,3 +36,6 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	if event is InputEventMouseButton:
 		screenTouch = event.is_pressed()
+		
+func set_velocity(vel: Vector2) -> void:
+	velocity = vel
