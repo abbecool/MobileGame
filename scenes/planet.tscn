@@ -1,17 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://cohsryxhrxdjg"]
+[gd_scene load_steps=5 format=3 uid="uid://cohsryxhrxdjg"]
 
-[ext_resource type="Script" uid="uid://bwwqixs8nrfpa" path="res://scenes/planet.gd" id="1_h8ms6"]
+[ext_resource type="Script" uid="uid://bwwqixs8nrfpa" path="res://scripts/planet.gd" id="1_h8ms6"]
 [ext_resource type="Texture2D" uid="uid://b2hfk7cfx4uhv" path="res://assets/images/mars.png" id="2_h8ms6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
-radius = 31.0
+radius = 15.0333
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
+radius = 17.0
 
 [node name="Planet" type="RigidBody2D"]
+contact_monitor = true
 script = ExtResource("1_h8ms6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_h8ms6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_iywne")
+
+[node name="CrashArea" type="Area2D" parent="."]
+
+[node name="CrashCollision" type="CollisionShape2D" parent="CrashArea"]
+shape = SubResource("CircleShape2D_h8ms6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="CrashArea" to="." method="_on_crash_area_body_entered"]

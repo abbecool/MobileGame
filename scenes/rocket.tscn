@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bia0bb2s2tua8"]
 
-[ext_resource type="Script" uid="uid://bwuieco0n8j8c" path="res://scenes/rocket.gd" id="1_dkv7l"]
+[ext_resource type="Script" uid="uid://bwuieco0n8j8c" path="res://scripts/rocket.gd" id="1_dkv7l"]
 [ext_resource type="Texture2D" uid="uid://bft4itp3vfoad" path="res://assets/images/rocket.png" id="2_dkv7l"]
 
 [node name="Rocket" type="RigidBody2D"]
+contact_monitor = true
 script = ExtResource("1_dkv7l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -11,6 +12,12 @@ texture_filter = 1
 texture = ExtResource("2_dkv7l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+limit_left = -1000
+limit_top = -1000
+limit_right = 1000
+limit_bottom = 1040
+limit_smoothed = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-4.76837e-07, 0)

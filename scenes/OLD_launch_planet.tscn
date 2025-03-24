@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c64ksi7oa7dn1"]
+
+[ext_resource type="Script" uid="uid://didn0dql51n72" path="res://scripts/launch_planet.gd" id="1_bldg5"]
+[ext_resource type="Texture2D" uid="uid://3jm2ged4yo4a" path="res://assets/images/earth.png" id="2_rav74"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
+radius = 31.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_naonu"]
+radius = 49.0
+
+[node name="LauchPlanet" type="Area2D"]
+script = ExtResource("1_bldg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+shape = SubResource("CircleShape2D_yqjtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_rav74")
+
+[node name="LauchArea2D" type="Area2D" parent="."]
+
+[node name="LauchCollider" type="CollisionShape2D" parent="LauchArea2D"]
+shape = SubResource("CircleShape2D_naonu")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="launch_rocket" from="." to="." method="_on_launch_rocket"]

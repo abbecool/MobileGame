@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqv1lmgp0ptgv"]
+
+[ext_resource type="Script" uid="uid://bcsps43uknut7" path="res://scripts/killzone.gd" id="1_xlapc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_csqde"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xlapc"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kl8fp"]
+normal = Vector2(-0.999978, 0.00668137)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j2mit"]
+normal = Vector2(0, 1)
+
+[node name="Killzone" type="Area2D"]
+script = ExtResource("1_xlapc")
+
+[node name="Bottom" type="CollisionShape2D" parent="."]
+position = Vector2(184, 863)
+shape = SubResource("WorldBoundaryShape2D_csqde")
+
+[node name="Left" type="CollisionShape2D" parent="."]
+position = Vector2(-58, 378)
+shape = SubResource("WorldBoundaryShape2D_xlapc")
+
+[node name="Right" type="CollisionShape2D" parent="."]
+position = Vector2(437, 382)
+shape = SubResource("WorldBoundaryShape2D_kl8fp")
+
+[node name="Top" type="CollisionShape2D" parent="."]
+position = Vector2(181, -133)
+shape = SubResource("WorldBoundaryShape2D_j2mit")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

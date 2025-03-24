@@ -1,21 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://c64ksi7oa7dn1"]
+[gd_scene load_steps=5 format=3 uid="uid://dtbg8upr0w5ct"]
 
-[ext_resource type="Script" uid="uid://didn0dql51n72" path="res://scenes/launch_planet.gd" id="1_naonu"]
-[ext_resource type="Texture2D" uid="uid://3jm2ged4yo4a" path="res://assets/images/earth.png" id="1_qtbqj"]
+[ext_resource type="PackedScene" uid="uid://cohsryxhrxdjg" path="res://scenes/planet.tscn" id="1_1rf6y"]
+[ext_resource type="Script" uid="uid://didn0dql51n72" path="res://scripts/launch_planet.gd" id="2_2fhli"]
+[ext_resource type="Texture2D" uid="uid://3jm2ged4yo4a" path="res://assets/images/earth.png" id="3_2fhli"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
-radius = 31.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fhli"]
+radius = 18.0
 
-[node name="Node2D" type="Area2D"]
-script = ExtResource("1_naonu")
+[node name="Planet" instance=ExtResource("1_1rf6y")]
+script = ExtResource("2_2fhli")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-texture_filter = 1
-shape = SubResource("CircleShape2D_yqjtg")
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_2fhli")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_qtbqj")
+[node name="LauchArea2D" type="Area2D" parent="." index="2"]
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="launch_rocket" from="." to="." method="_on_launch_rocket"]
+[node name="LauchCollider" type="CollisionShape2D" parent="LauchArea2D" index="0"]
+shape = SubResource("CircleShape2D_2fhli")
+
+[connection signal="body_entered" from="LauchArea2D" to="." method="_on_lauch_area_2d_body_entered"]
+[connection signal="input_event" from="LauchArea2D" to="." method="_on_lauch_area_2d_input_event"]

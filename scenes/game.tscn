@@ -1,16 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4oqdn0wdcyur"]
+[gd_scene load_steps=8 format=3 uid="uid://c4oqdn0wdcyur"]
 
-[ext_resource type="Script" uid="uid://b0han17um0ygb" path="res://scenes/game.gd" id="1_iywne"]
-[ext_resource type="PackedScene" uid="uid://cohsryxhrxdjg" path="res://scenes/planet.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://b0han17um0ygb" path="res://scripts/game.gd" id="1_iywne"]
 [ext_resource type="Texture2D" uid="uid://chell6n0bk8k0" path="res://assets/images/stars.png" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://dtbg8upr0w5ct" path="res://scenes/launch_planet2.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dtbg8upr0w5ct" path="res://scenes/launch_planet.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://cohsryxhrxdjg" path="res://scenes/planet.tscn" id="5_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dqv1lmgp0ptgv" path="res://scenes/killzone.tscn" id="6_p57ef"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.4, 0.3848, 0.172, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
+bg_color = Color(0.811765, 0.768627, 0.168627, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_iywne")
 
 [node name="Backgound2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(533, -111.833)
+position = Vector2(533, -113)
 scale = Vector2(24.0222, 24.0222)
 texture = ExtResource("1_yqjtg")
 
@@ -19,14 +26,24 @@ texture_filter = 1
 position = Vector2(180, 390)
 texture = ExtResource("1_yqjtg")
 
+[node name="Killzone" parent="." instance=ExtResource("6_p57ef")]
+
 [node name="Earth" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(180, 600)
+position = Vector2(180, 614)
+contact_monitor = false
 
-[node name="Planet" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(50, 326)
+[node name="Planet" parent="." instance=ExtResource("5_p57ef")]
+position = Vector2(180, 132)
 
-[node name="Planet2" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(290, 159)
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 121.0
+offset_top = 40.0
+offset_right = 246.0
+offset_bottom = 67.0
+theme_override_styles/background = SubResource("StyleBoxFlat_iywne")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p57ef")
+show_percentage = false
 
+[connection signal="body_shape_entered" from="Earth" to="Earth" method="_on_body_shape_entered"]
 [connection signal="input_event" from="Earth" to="Earth" method="_on_input_event"]
 [connection signal="launch_rocket" from="Earth" to="Earth" method="_on_launch_rocket"]
