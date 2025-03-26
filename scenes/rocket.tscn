@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bwuieco0n8j8c" path="res://scripts/rocket.gd" id="1_dkv7l"]
 [ext_resource type="Texture2D" uid="uid://bft4itp3vfoad" path="res://assets/images/rocket.png" id="2_dkv7l"]
 
-[node name="Rocket" type="RigidBody2D"]
+[node name="Rocket" type="RigidBody2D" groups=["rocket"]]
 contact_monitor = true
 script = ExtResource("1_dkv7l")
 
@@ -23,3 +23,7 @@ limit_smoothed = true
 position = Vector2(-4.76837e-07, 0)
 scale = Vector2(0.859789, 0.979834)
 polygon = PackedVector2Array(-2.32615, -16.3293, -8.14153, -2.04116, -10.4677, 10.2058, 5.54598e-07, 11.2264, 10.4677, 10.2058, 8.14153, -2.04116, 2.32615, -16.3293)
+
+[node name="OrbitTimer" type="Timer" parent="."]
+
+[connection signal="update_orbiting_planet" from="." to="." method="_on_update_orbiting_planet"]

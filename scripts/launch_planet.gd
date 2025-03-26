@@ -17,8 +17,9 @@ func _on_launch_rocket() -> void:
 	var rocket = Rocket.instantiate()
 	var offset = Vector2(75, 0)
 	var rocket_velocity = sqrt(get_parent().get_real_gravity()*mass/offset.length()) * Vector2(0, -1)
-	rocket.set_position(position + offset)
-	rocket.set_velocity(rocket_velocity)
+	#rocket.set_position(position + offset)
+	#rocket.set_velocity(rocket_velocity)
+	rocket.set_orbiting_planet(self)
 	add_sibling(rocket)
 
 func _on_lauch_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
