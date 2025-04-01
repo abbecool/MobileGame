@@ -17,7 +17,7 @@ script = ExtResource("1_iywne")
 
 [node name="Backgound2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(533, -113)
+position = Vector2(168, -193)
 scale = Vector2(24.0222, 24.0222)
 texture = ExtResource("1_yqjtg")
 
@@ -27,25 +27,14 @@ position = Vector2(180, 390)
 texture = ExtResource("1_yqjtg")
 
 [node name="Killzone" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(-3, 2)
 
 [node name="Earth" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(180, 660)
+position = Vector2(180, 560)
 contact_monitor = false
 
 [node name="Planet" parent="." instance=ExtResource("5_p57ef")]
-position = Vector2(194, 283)
-
-[node name="Planet2" parent="." instance=ExtResource("5_p57ef")]
-position = Vector2(306, 438)
-
-[node name="Planet3" parent="." instance=ExtResource("5_p57ef")]
-position = Vector2(309, 110)
-
-[node name="Planet4" parent="." instance=ExtResource("5_p57ef")]
-position = Vector2(68, 120)
-
-[node name="Planet5" parent="." instance=ExtResource("5_p57ef")]
-position = Vector2(69, 443)
+position = Vector2(187, 290)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = 121.0

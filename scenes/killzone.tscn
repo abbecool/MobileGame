@@ -17,19 +17,19 @@ normal = Vector2(0, 1)
 script = ExtResource("1_xlapc")
 
 [node name="Bottom" type="CollisionShape2D" parent="."]
-position = Vector2(192, 1003)
+position = Vector2(168, 790)
 shape = SubResource("WorldBoundaryShape2D_csqde")
 
 [node name="Left" type="CollisionShape2D" parent="."]
-position = Vector2(-298, 384)
+position = Vector2(-7, 411)
 shape = SubResource("WorldBoundaryShape2D_xlapc")
 
 [node name="Right" type="CollisionShape2D" parent="."]
-position = Vector2(644, 394)
+position = Vector2(366, 405)
 shape = SubResource("WorldBoundaryShape2D_kl8fp")
 
 [node name="Top" type="CollisionShape2D" parent="."]
-position = Vector2(189, -279)
+position = Vector2(197, -25)
 shape = SubResource("WorldBoundaryShape2D_j2mit")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

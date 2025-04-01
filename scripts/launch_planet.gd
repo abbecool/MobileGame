@@ -7,7 +7,7 @@ signal launch_rocket
 func _ready() -> void:
 	RADIUS = 32
 	add_to_group("planets") # Replace with function body.
-	mass = MASS
+	mass = MASS/1e6
 
 func _process(delta: float) -> void:
 	rotation_degrees += ROTATION_SPEED * delta
@@ -23,11 +23,15 @@ func _on_launch_rocket() -> void:
 	add_sibling(rocket)
 
 func _on_lauch_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if !launched and event is InputEventMouseButton:
-		emit_signal("launch_rocket")
+	if !launched and event is InputEventScreenTouch:
+		if event.pressed:
+			#print("pressed")
+			emit_signal("launch_rocket")
+		#else:
+			#print("not pressed")
+			#print(event.position)
 
-
-func _on_lauch_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_signal("successful_landing"):
-		print("successful_landing")
-		body.landing(true)
+#func _on_lauch_area_2d_body_entered(body: Node2D) -> void:
+	#if body.has_signal("successful_landing"):
+		#print("successful_landing")
+		#body.landing(true)
