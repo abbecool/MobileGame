@@ -7,17 +7,17 @@ signal launch_rocket
 func _ready() -> void:
 	RADIUS = 32
 	add_to_group("planets") # Replace with function body.
-	mass = MASS/1e6
 
-func _process(delta: float) -> void:
-	rotation_degrees += ROTATION_SPEED * delta
+#func _process(delta: float) -> void:
+	#pass
+	#rotation_degrees += ROTATION_SPEED * delta
 
 func _on_launch_rocket() -> void:
 	launched = true
 	var rocket = Rocket.instantiate()
 	var offset = Vector2(75, 0)
-	var rocket_velocity = sqrt(get_parent().get_real_gravity()*mass/offset.length()) * Vector2(0, -1)
-	#rocket.set_position(position + offset)
+	var rocket_velocity = sqrt(get_parent().get_real_gravity()*MASS/offset.length()) * Vector2(0, -1)
+	rocket.set_position(position + offset)
 	#rocket.set_velocity(rocket_velocity)
 	rocket.set_orbiting_planet(self)
 	add_sibling(rocket)

@@ -31,7 +31,6 @@ position = Vector2(-3, 2)
 
 [node name="Earth" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(180, 560)
-contact_monitor = false
 
 [node name="Planet" parent="." instance=ExtResource("5_p57ef")]
 position = Vector2(187, 290)
@@ -45,6 +44,5 @@ theme_override_styles/background = SubResource("StyleBoxFlat_iywne")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p57ef")
 show_percentage = false
 
-[connection signal="body_shape_entered" from="Earth" to="Earth" method="_on_body_shape_entered"]
 [connection signal="input_event" from="Earth" to="Earth" method="_on_input_event"]
 [connection signal="launch_rocket" from="Earth" to="Earth" method="_on_launch_rocket"]

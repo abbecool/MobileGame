@@ -9,8 +9,7 @@ radius = 15.0333
 [sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
 radius = 17.0
 
-[node name="Planet" type="RigidBody2D"]
-contact_monitor = true
+[node name="Planet" type="StaticBody2D"]
 script = ExtResource("1_h8ms6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,7 +25,5 @@ shape = SubResource("CircleShape2D_iywne")
 [node name="CrashCollision" type="CollisionShape2D" parent="CrashArea"]
 shape = SubResource("CircleShape2D_h8ms6")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="orbit" from="." to="." method="_on_orbit"]
-[connection signal="body_entered" from="CrashArea" to="." method="_on_crash_area_body_entered"]
 [connection signal="input_event" from="CrashArea" to="." method="_on_crash_area_input_event"]
