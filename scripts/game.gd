@@ -3,7 +3,7 @@ extends Node2D
 const GameOverScreen = preload("res://scenes/game_over.tscn")
 const Rocket = preload("res://scenes/rocket.tscn")
 
-const GRAVITATIONAL_FORCE = 2e-3
+const GRAVITATIONAL_FORCE = 1e-3
 
 var rocket : RigidBody2D
 

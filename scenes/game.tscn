@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0han17um0ygb" path="res://scripts/game.gd" id="1_iywne"]
 [ext_resource type="Texture2D" uid="uid://chell6n0bk8k0" path="res://assets/images/stars.png" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://dtbg8upr0w5ct" path="res://scenes/launch_planet.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://bia0bb2s2tua8" path="res://scenes/rocket.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cohsryxhrxdjg" path="res://scenes/planet.tscn" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dqv1lmgp0ptgv" path="res://scenes/killzone.tscn" id="6_p57ef"]
 
@@ -29,11 +29,11 @@ texture = ExtResource("1_yqjtg")
 [node name="Killzone" parent="." instance=ExtResource("6_p57ef")]
 position = Vector2(-3, 2)
 
-[node name="Earth" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(180, 600)
-
 [node name="Planet" parent="." instance=ExtResource("5_p57ef")]
-position = Vector2(175, 127)
+position = Vector2(184, 245)
+
+[node name="Planet2" parent="." instance=ExtResource("5_p57ef")]
+position = Vector2(135, 479)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = 121.0
@@ -44,5 +44,5 @@ theme_override_styles/background = SubResource("StyleBoxFlat_iywne")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p57ef")
 show_percentage = false
 
-[connection signal="input_event" from="Earth" to="Earth" method="_on_input_event"]
-[connection signal="launch_rocket" from="Earth" to="Earth" method="_on_launch_rocket"]
+[node name="Rocket" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(179, 540)
