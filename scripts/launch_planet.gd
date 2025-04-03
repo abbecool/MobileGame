@@ -15,10 +15,10 @@ func _ready() -> void:
 func _on_launch_rocket() -> void:
 	launched = true
 	var rocket = Rocket.instantiate()
-	var offset = Vector2(75, 0)
-	var rocket_velocity = sqrt(get_parent().get_real_gravity()*MASS/offset.length()) * Vector2(0, -1)
+	var offset = Vector2(150, 0)
+	var rocket_velocity = sqrt(get_parent().get_real_gravity()*MASS/offset.length()) * Vector2(0.1, -1)
 	rocket.set_position(position + offset)
-	#rocket.set_velocity(rocket_velocity)
+	rocket.set_velocity(rocket_velocity*1.05)
 	rocket.set_orbiting_planet(self)
 	add_sibling(rocket)
 

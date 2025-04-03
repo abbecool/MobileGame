@@ -30,10 +30,10 @@ texture = ExtResource("1_yqjtg")
 position = Vector2(-3, 2)
 
 [node name="Earth" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(180, 560)
+position = Vector2(180, 600)
 
 [node name="Planet" parent="." instance=ExtResource("5_p57ef")]
-position = Vector2(187, 290)
+position = Vector2(175, 127)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = 121.0

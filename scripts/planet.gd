@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	#rotation_degrees += ROTATION_SPEED * delta
 
 func _draw():
-	draw_arc(Vector2.ZERO, 100, 0, TAU, 64, Color(1, 1, 1), 3)
+	draw_arc(Vector2.ZERO, 150, 0, TAU, 64, Color(1, 1, 1), 3)
 	draw_line(radius_line[0], radius_line[1], Color(0,1,0), 3)
 
 func set_radius_line(from: Vector2, to: Vector2 = Vector2.ZERO) -> void:

@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dkv7l"]
 radius = 29.0689
 
-[node name="Rocket" type="CharacterBody2D" groups=["rocket"]]
+[node name="Rocket" type="RigidBody2D" groups=["rocket"]]
 script = ExtResource("1_dkv7l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
